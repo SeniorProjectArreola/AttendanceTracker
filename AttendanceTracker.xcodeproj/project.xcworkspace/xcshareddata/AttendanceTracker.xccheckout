@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>C58B06EC-A75C-4D8D-B822-435F572F334B</string>
+	<key>IDESourceControlProjectName</key>
+	<string>AttendanceTracker</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>46B08FC5-F3A3-4A89-A525-3A52762EC92F</key>
+		<string>https://github.com/SeniorProjectArreola/AttendanceTracker.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>AttendanceTracker.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>46B08FC5-F3A3-4A89-A525-3A52762EC92F</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/SeniorProjectArreola/AttendanceTracker.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>46B08FC5-F3A3-4A89-A525-3A52762EC92F</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>46B08FC5-F3A3-4A89-A525-3A52762EC92F</string>
+			<key>IDESourceControlWCCName</key>
+			<string>AttendanceTracker</string>
+		</dict>
+	</array>
+</dict>
+</plist>

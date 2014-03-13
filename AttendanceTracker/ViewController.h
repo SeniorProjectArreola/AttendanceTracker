@@ -10,7 +10,7 @@
 
 @interface ViewController : UIViewController
 
-@property (strong, nonatomic) NSString *username;
+@property (strong, nonatomic) NSString *userName;
 
 @property (weak, nonatomic) IBOutlet UILabel *infoLabel;
 

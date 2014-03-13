@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		060ABE4C18D2291200FE40BD /* ProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 060ABE4918D2291200FE40BD /* ProgressHUD.bundle */; };
+		060ABE4D18D2291200FE40BD /* ProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 060ABE4B18D2291200FE40BD /* ProgressHUD.m */; };
+		061239FC18D23F5900CCB86F /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 061239FB18D23F5900CCB86F /* MainViewController.m */; };
+		061239FF18D246E500CCB86F /* TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 061239FE18D246E500CCB86F /* TableViewCell.m */; };
+		06123A0418D247BC00CCB86F /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 06123A0318D247BC00CCB86F /* Event.m */; };
 		0612C97918D120FC00C07028 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0612C97818D120FC00C07028 /* Foundation.framework */; };
 		0612C97B18D120FC00C07028 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0612C97A18D120FC00C07028 /* CoreGraphics.framework */; };
 		0612C97D18D120FC00C07028 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0612C97C18D120FC00C07028 /* UIKit.framework */; };
@@ -22,6 +27,7 @@
 		0612C9A218D120FC00C07028 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0612C9A018D120FC00C07028 /* InfoPlist.strings */; };
 		0612C9A418D120FC00C07028 /* AttendanceTrackerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0612C9A318D120FC00C07028 /* AttendanceTrackerTests.m */; };
 		0612C9AF18D1223000C07028 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0612C9AE18D1223000C07028 /* LoginViewController.m */; };
+		8610C264C4404E4AAC866D61 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 41A609BAD005442AB51CB2FE /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +41,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		060ABE4918D2291200FE40BD /* ProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ProgressHUD.bundle; sourceTree = "<group>"; };
+		060ABE4A18D2291200FE40BD /* ProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressHUD.h; sourceTree = "<group>"; };
+		060ABE4B18D2291200FE40BD /* ProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressHUD.m; sourceTree = "<group>"; };
+		061239FA18D23F5900CCB86F /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		061239FB18D23F5900CCB86F /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		061239FD18D246E500CCB86F /* TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewCell.h; sourceTree = "<group>"; };
+		061239FE18D246E500CCB86F /* TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewCell.m; sourceTree = "<group>"; };
+		06123A0218D247BC00CCB86F /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
+		06123A0318D247BC00CCB86F /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
 		0612C97518D120FC00C07028 /* AttendanceTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AttendanceTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0612C97818D120FC00C07028 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		0612C97A18D120FC00C07028 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -56,6 +71,8 @@
 		0612C9A318D120FC00C07028 /* AttendanceTrackerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AttendanceTrackerTests.m; sourceTree = "<group>"; };
 		0612C9AD18D1223000C07028 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		0612C9AE18D1223000C07028 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		41A609BAD005442AB51CB2FE /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B376935AA954B598C174DCA /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +83,7 @@
 				0612C97B18D120FC00C07028 /* CoreGraphics.framework in Frameworks */,
 				0612C97D18D120FC00C07028 /* UIKit.framework in Frameworks */,
 				0612C97918D120FC00C07028 /* Foundation.framework in Frameworks */,
+				8610C264C4404E4AAC866D61 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,13 +100,51 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		060ABE4718D228F400FE40BD /* ThirdParty */ = {
+			isa = PBXGroup;
+			children = (
+				060ABE4818D2291200FE40BD /* ProgressHUD */,
+			);
+			name = ThirdParty;
+			sourceTree = "<group>";
+		};
+		060ABE4818D2291200FE40BD /* ProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				060ABE4918D2291200FE40BD /* ProgressHUD.bundle */,
+				060ABE4A18D2291200FE40BD /* ProgressHUD.h */,
+				060ABE4B18D2291200FE40BD /* ProgressHUD.m */,
+			);
+			path = ProgressHUD;
+			sourceTree = "<group>";
+		};
+		06123A0018D246EF00CCB86F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				061239FD18D246E500CCB86F /* TableViewCell.h */,
+				061239FE18D246E500CCB86F /* TableViewCell.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		06123A0118D247B000CCB86F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				06123A0218D247BC00CCB86F /* Event.h */,
+				06123A0318D247BC00CCB86F /* Event.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		0612C96C18D120FC00C07028 = {
 			isa = PBXGroup;
 			children = (
 				0612C97E18D120FC00C07028 /* AttendanceTracker */,
+				060ABE4718D228F400FE40BD /* ThirdParty */,
 				0612C99D18D120FC00C07028 /* AttendanceTrackerTests */,
 				0612C97718D120FC00C07028 /* Frameworks */,
 				0612C97618D120FC00C07028 /* Products */,
+				8B376935AA954B598C174DCA /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -108,6 +164,7 @@
 				0612C97A18D120FC00C07028 /* CoreGraphics.framework */,
 				0612C97C18D120FC00C07028 /* UIKit.framework */,
 				0612C99718D120FC00C07028 /* XCTest.framework */,
+				41A609BAD005442AB51CB2FE /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -115,11 +172,15 @@
 		0612C97E18D120FC00C07028 /* AttendanceTracker */ = {
 			isa = PBXGroup;
 			children = (
+				06123A0118D247B000CCB86F /* Model */,
+				06123A0018D246EF00CCB86F /* View */,
 				0612C98718D120FC00C07028 /* AppDelegate.h */,
 				0612C98818D120FC00C07028 /* AppDelegate.m */,
 				0612C98A18D120FC00C07028 /* Main.storyboard */,
 				0612C9AD18D1223000C07028 /* LoginViewController.h */,
 				0612C9AE18D1223000C07028 /* LoginViewController.m */,
+				061239FA18D23F5900CCB86F /* MainViewController.h */,
+				061239FB18D23F5900CCB86F /* MainViewController.m */,
 				0612C98D18D120FC00C07028 /* ViewController.h */,
 				0612C98E18D120FC00C07028 /* ViewController.m */,
 				0612C99018D120FC00C07028 /* Images.xcassets */,
@@ -164,9 +225,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0612C9A718D120FC00C07028 /* Build configuration list for PBXNativeTarget "AttendanceTracker" */;
 			buildPhases = (
+				A15CBF7C8D58491D8A4DA4DD /* Check Pods Manifest.lock */,
 				0612C97118D120FC00C07028 /* Sources */,
 				0612C97218D120FC00C07028 /* Frameworks */,
 				0612C97318D120FC00C07028 /* Resources */,
+				7F45355B9920452A8A7E62A4 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -233,6 +296,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				060ABE4C18D2291200FE40BD /* ProgressHUD.bundle in Resources */,
 				0612C99118D120FC00C07028 /* Images.xcassets in Resources */,
 				0612C98318D120FC00C07028 /* InfoPlist.strings in Resources */,
 				0612C98C18D120FC00C07028 /* Main.storyboard in Resources */,
@@ -249,13 +313,50 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		7F45355B9920452A8A7E62A4 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A15CBF7C8D58491D8A4DA4DD /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		0612C97118D120FC00C07028 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				061239FF18D246E500CCB86F /* TableViewCell.m in Sources */,
 				0612C9AF18D1223000C07028 /* LoginViewController.m in Sources */,
+				061239FC18D23F5900CCB86F /* MainViewController.m in Sources */,
 				0612C98F18D120FC00C07028 /* ViewController.m in Sources */,
+				06123A0418D247BC00CCB86F /* Event.m in Sources */,
+				060ABE4D18D2291200FE40BD /* ProgressHUD.m in Sources */,
 				0612C98918D120FC00C07028 /* AppDelegate.m in Sources */,
 				0612C98518D120FC00C07028 /* main.m in Sources */,
 			);
@@ -379,6 +480,7 @@
 		};
 		0612C9A818D120FC00C07028 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8B376935AA954B598C174DCA /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -392,6 +494,7 @@
 		};
 		0612C9A918D120FC00C07028 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8B376935AA954B598C174DCA /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -462,6 +565,7 @@
 				0612C9A918D120FC00C07028 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0612C9AA18D120FC00C07028 /* Build configuration list for PBXNativeTarget "AttendanceTrackerTests" */ = {
 			isa = XCConfigurationList;
@@ -470,6 +574,7 @@
 				0612C9AC18D120FC00C07028 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -8,11 +8,17 @@
 
 #import "AppDelegate.h"
 
+#import "ProgressHUD.h"
+
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    
+    [[UINavigationBar appearance] setBackgroundImage: [UIImage imageNamed: @"NavigationBar"] forBarMetrics: UIBarMetricsDefault];
+    //[[UIApplication sharedApplication] setStatusBarHidden: YES];
+    
     return YES;
 }
 							
@@ -46,6 +52,8 @@
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
 {
     NSLog(@"RECEIVED LOCAL NOTIFICATION");
+    
+    [ProgressHUD showSuccess: notification.alertBody];
 }
 
 @end

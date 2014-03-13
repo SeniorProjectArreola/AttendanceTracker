@@ -8,7 +8,7 @@
 
 #import "LoginViewController.h"
 
-#import "ViewController.h"
+#import "MainViewController.h"
 
 @interface LoginViewController ()
 
@@ -48,10 +48,11 @@
 //        
 //    }else if([self.userNameField.text isEqualToString: @"adela@stedwards.edu"]){
 //        
-        ViewController *viewController = [self.storyboard instantiateViewControllerWithIdentifier: @"viewController"];
-        viewController.username = @"adela";
-        
-        [self presentViewController: viewController animated: YES completion: nil];
+    UINavigationController *navViewController = [self.storyboard instantiateViewControllerWithIdentifier: @"loggedInNavigationController"];
+    MainViewController *viewController = [[navViewController childViewControllers] objectAtIndex: 0];
+    viewController.userName = @"Adela";
+    
+    [self presentViewController: navViewController animated: YES completion: nil];
         
 //    }else{
 //        NSLog(@"Erorr");
