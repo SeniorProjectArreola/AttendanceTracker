@@ -10,7 +10,9 @@
 
 #import <CoreLocation/CoreLocation.h>
 
-@interface ViewController () <CLLocationManagerDelegate>
+@interface ViewController () <CLLocationManagerDelegate>{
+    BOOL _isInsideRegion;
+}
 
 @property (nonatomic, strong) CLLocationManager *locationManager;
 
@@ -27,9 +29,15 @@
     
     NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:@"B9407F30-F5F8-466E-AFF9-25556B57FE6D"];
     
-    CLBeaconRegion *region = [[CLBeaconRegion alloc] initWithProximityUUID: uuid identifier: @"com.adelaarreola.ibeacon_dongle"];
+    CLBeaconRegion *region = [[CLBeaconRegion alloc] initWithProximityUUID: uuid identifier: @"com.adelaarreola.ibeacon_senior_project"];
+    region.notifyEntryStateOnDisplay = YES;
+    region.notifyOnEntry = YES;
+    region.notifyOnExit = YES;
     
     [self.locationManager startRangingBeaconsInRegion: region];
+    [self.locationManager startMonitoringForRegion: region];
+    
+    [self.locationManager requestStateForRegion: region];
 }
 
 - (void)didReceiveMemoryWarning
@@ -65,25 +73,79 @@
 
 - (void)locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region
 {
-    NSLog(@"entered region %@", region);
+    NSLog(@"Entered Region: %@", region);
+    self.infoLabel.text = @"IN";
     
-    self.infoLabel.text = @"ENTERED";
-    
-    [self.locationManager startRangingBeaconsInRegion:(CLBeaconRegion *)region];
+    //[self.locationManager startRangingBeaconsInRegion:(CLBeaconRegion *)region];
 }
 
 - (void)locationManager:(CLLocationManager *)manager didExitRegion:(CLRegion *)region
 {
-    NSLog(@"exited region %@", region);
+    NSLog(@"Exited Region: %@", region);
+    self.infoLabel.text = @"OUT";
     
-    self.infoLabel.text = @"EXITED";
+    //[self.locationManager stopRangingBeaconsInRegion:(CLBeaconRegion *)region];
+}
+
+- (void)locationManager:(CLLocationManager *)manager didDetermineState:(CLRegionState)state forRegion:(CLRegion *)region
+{
+    [self updateScreenForState: state];
     
-    [self.locationManager stopRangingBeaconsInRegion:(CLBeaconRegion *)region];
+    if (state == CLRegionStateInside) {
+        [self sendEnterNotification];
+        
+    }else if(state == CLRegionStateOutside){
+        [self sendExitNotification];
+        
+    }
 }
 
 - (void)locationManager:(CLLocationManager *)manager monitoringDidFailForRegion:(CLRegion *)region withError:(NSError *)error
 {
-	NSLog(@"monitoring failed = %@", error);
+	NSLog(@"Monitoring Failed: %@", error);
+}
+
+#pragma mark - Helper's
+
+- (void)updateScreenForState:(CLRegionState)state
+{
+    if (state == CLRegionStateInside){
+        self.infoLabel.text = @"IN";
+        
+    }else if (state == CLRegionStateOutside){
+        self.infoLabel.text = @"OUT";
+        
+    }else{
+        self.infoLabel.text = @"?";
+    }
+}
+
+- (void)sendEnterNotification
+{
+    if (!_isInsideRegion) {
+        
+        UILocalNotification *notification = [[UILocalNotification alloc] init];
+        notification.alertBody = @"You have entered the region!";
+        notification.alertAction = @"Open";
+        
+        [[UIApplication sharedApplication] presentLocalNotificationNow: notification];
+    }
+    
+    _isInsideRegion = YES;
+}
+
+- (void)sendExitNotification
+{
+    if (_isInsideRegion) {
+        
+        UILocalNotification *notification = [[UILocalNotification alloc] init];
+        notification.alertBody = @"You have left the region!";
+        notification.alertAction = @"Open";
+        
+        [[UIApplication sharedApplication] presentLocalNotificationNow: notification];
+    }
+    
+    _isInsideRegion = NO;
 }
 
 @end
