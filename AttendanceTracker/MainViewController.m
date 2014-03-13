@@ -65,12 +65,11 @@
     
     Event *event = self.events[indexPath.row];
     
-    cell.type.text = [NSString stringWithFormat: @"%@:", event.type];
     if ([event.type isEqual: @"In"]) {
-        [cell.type setTextColor: [UIColor colorWithRed: 178.0/255.0 green: 255.0/255.0 blue: 102.0/255.0 alpha: 1]];
+        [cell.typeImage setImage: [UIImage imageNamed: @"InCheck"]];
         
     }else{
-        [cell.type setTextColor: [UIColor colorWithRed: 255.0/255.0 green: 178.0/255.0 blue: 102.0/255.0 alpha: 1]];
+        [cell.typeImage setImage: [UIImage imageNamed: @"OutCheck"]];
     }
     
     NSDateFormatter *timeFormatter = [[NSDateFormatter alloc]init];

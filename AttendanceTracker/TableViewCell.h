@@ -10,7 +10,7 @@
 
 @interface TableViewCell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet UILabel *type;
+@property (weak, nonatomic) IBOutlet UIImageView *typeImage;
 @property (weak, nonatomic) IBOutlet UILabel *time;
 
 @end
