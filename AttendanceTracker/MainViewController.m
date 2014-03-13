@@ -64,7 +64,14 @@
     TableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: @"Cell" forIndexPath:indexPath];
     
     Event *event = self.events[indexPath.row];
-    cell.type.text = event.type;
+    
+    cell.type.text = [NSString stringWithFormat: @"%@:", event.type];
+    if ([event.type isEqual: @"In"]) {
+        [cell.type setTextColor: [UIColor colorWithRed: 178.0/255.0 green: 255.0/255.0 blue: 102.0/255.0 alpha: 1]];
+        
+    }else{
+        [cell.type setTextColor: [UIColor colorWithRed: 255.0/255.0 green: 178.0/255.0 blue: 102.0/255.0 alpha: 1]];
+    }
     
     NSDateFormatter *timeFormatter = [[NSDateFormatter alloc]init];
     timeFormatter.dateFormat = @"HH:mm:ss";
