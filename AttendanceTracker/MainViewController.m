@@ -9,6 +9,7 @@
 #import "MainViewController.h"
 
 #import <CoreLocation/CoreLocation.h>
+#import <AFNetworking/AFNetworking.h>
 
 #import "TableViewCell.h"
 #import "Event.h"
@@ -228,6 +229,7 @@
     newEvent.date = [NSDate date];
     
     [self.events addObject: newEvent];
+    [self postEvent: newEvent];
     
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow: [self.events count] - 1 inSection: 0];
     [self.tableView insertRowsAtIndexPaths: @[indexPath] withRowAnimation: UITableViewRowAnimationBottom];
@@ -240,9 +242,41 @@
     newEvent.date = [NSDate date];
     
     [self.events addObject: newEvent];
+    [self postEvent: newEvent];
     
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow: [self.events count] - 1 inSection: 0];
     [self.tableView insertRowsAtIndexPaths: @[indexPath] withRowAnimation: UITableViewRowAnimationBottom];
+}
+
+#pragma mark - Network
+
+- (void)postEvent:(Event *)event
+{
+    AFHTTPRequestOperationManager *operationManager = [AFHTTPRequestOperationManager manager];
+    operationManager.requestSerializer = [AFJSONRequestSerializer serializer];
+    operationManager.responseSerializer = [AFJSONResponseSerializer serializer];
+    
+    NSDateFormatter *timeFormatter = [[NSDateFormatter alloc]init];
+    timeFormatter.dateFormat = @"HH:mm:ss";
+    NSString *time = [timeFormatter stringFromDate: event.date];
+    
+    id params = @{
+                  @"name" : self.userName,
+                  @"email" : self.email,
+                  @"time" : time,
+                  @"inOut" : event.type
+                  };
+    
+    [operationManager POST: @"http://192.241.185.153:8000/events"
+                parameters: params
+                   success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                       NSLog(@"Success: %@", responseObject[@"data"]);
+                       
+                   }
+                   failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                       NSLog(@"Error: %@", error.localizedDescription);
+                       
+                   }];
 }
 
 @end

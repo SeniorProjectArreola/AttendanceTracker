@@ -51,6 +51,7 @@
     UINavigationController *navViewController = [self.storyboard instantiateViewControllerWithIdentifier: @"loggedInNavigationController"];
     MainViewController *viewController = [[navViewController childViewControllers] objectAtIndex: 0];
     viewController.userName = @"Adela";
+    viewController.email = @"adelaarreola@gmail.com";
     
     [self presentViewController: navViewController animated: YES completion: nil];
         

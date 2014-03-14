@@ -121,6 +121,7 @@
 		06123A0018D246EF00CCB86F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				0612C98A18D120FC00C07028 /* Main.storyboard */,
 				061239FD18D246E500CCB86F /* TableViewCell.h */,
 				061239FE18D246E500CCB86F /* TableViewCell.m */,
 			);
@@ -174,15 +175,9 @@
 			children = (
 				06123A0118D247B000CCB86F /* Model */,
 				06123A0018D246EF00CCB86F /* View */,
+				061EDE6418D2B31400673E28 /* Controller */,
 				0612C98718D120FC00C07028 /* AppDelegate.h */,
 				0612C98818D120FC00C07028 /* AppDelegate.m */,
-				0612C98A18D120FC00C07028 /* Main.storyboard */,
-				0612C9AD18D1223000C07028 /* LoginViewController.h */,
-				0612C9AE18D1223000C07028 /* LoginViewController.m */,
-				061239FA18D23F5900CCB86F /* MainViewController.h */,
-				061239FB18D23F5900CCB86F /* MainViewController.m */,
-				0612C98D18D120FC00C07028 /* ViewController.h */,
-				0612C98E18D120FC00C07028 /* ViewController.m */,
 				0612C99018D120FC00C07028 /* Images.xcassets */,
 				0612C97F18D120FC00C07028 /* Supporting Files */,
 			);
@@ -216,6 +211,19 @@
 				0612C9A018D120FC00C07028 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		061EDE6418D2B31400673E28 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0612C9AD18D1223000C07028 /* LoginViewController.h */,
+				0612C9AE18D1223000C07028 /* LoginViewController.m */,
+				061239FA18D23F5900CCB86F /* MainViewController.h */,
+				061239FB18D23F5900CCB86F /* MainViewController.m */,
+				0612C98D18D120FC00C07028 /* ViewController.h */,
+				0612C98E18D120FC00C07028 /* ViewController.m */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
