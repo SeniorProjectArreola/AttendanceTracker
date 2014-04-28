@@ -74,7 +74,7 @@
     
     Event *event = self.events[indexPath.row];
     
-    if ([event.type isEqual: @"In"]) {
+    if ([event.type isEqual: @"in"]) {
         [cell.typeImage setImage: [UIImage imageNamed: @"InCheck"]];
         
     }else{
@@ -115,7 +115,8 @@
     self.locationManager = [[CLLocationManager alloc] init];
 	self.locationManager.delegate = self;
     
-    NSUUID *uuid = [[NSUUID alloc] initWithUUIDString: @"B9407F30-F5F8-466E-AFF9-25556B57FE6D"];
+    //NSUUID *uuid = [[NSUUID alloc] initWithUUIDString: @"B9407F30-F5F8-466E-AFF9-25556B57FE6D"];
+    NSUUID *uuid = [[NSUUID alloc] initWithUUIDString: @"NEW UUID HERE"];
     
     CLBeaconRegion *region = [[CLBeaconRegion alloc] initWithProximityUUID: uuid identifier: @"com.adelaarreola.ibeacon_senior_project"];
     region.notifyEntryStateOnDisplay = YES;
@@ -309,26 +310,6 @@
                  };
         
     }
-}
-
-- (IBAction)testIn:(id)sender
-{
-    Event *newEvent = [[Event alloc] init];
-    newEvent.type = @"in";
-    newEvent.date = [NSDate date];
-    
-    [self.events addObject: newEvent];
-    [self postEvent: newEvent];
-}
-
-- (IBAction)testOut:(id)sender
-{
-    Event *newEvent = [[Event alloc] init];
-    newEvent.type = @"out";
-    newEvent.date = [NSDate date];
-    
-    [self.events addObject: newEvent];
-    [self postEvent: newEvent];
 }
 
 @end
