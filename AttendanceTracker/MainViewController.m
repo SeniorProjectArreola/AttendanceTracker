@@ -39,6 +39,14 @@
     
     self.events = [[NSMutableArray alloc] init];
     
+    if ([[UIApplication sharedApplication] backgroundRefreshStatus] == UIBackgroundRefreshStatusAvailable) {
+        NSLog(@"Background updates are available for the app.");
+    }else if([[UIApplication sharedApplication] backgroundRefreshStatus] == UIBackgroundRefreshStatusDenied){
+        NSLog(@"The user explicitly disabled background behavior for this app or for the whole system.");
+    }else if([[UIApplication sharedApplication] backgroundRefreshStatus] == UIBackgroundRefreshStatusRestricted){
+        NSLog(@"Background updates are unavailable and the user cannot enable them again. For example, this status can occur when parental controls are in effect for the current user.");
+    }
+    
     [self setUpBeacons];
 }
 
@@ -107,12 +115,13 @@
     self.locationManager = [[CLLocationManager alloc] init];
 	self.locationManager.delegate = self;
     
-    NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:@"B9407F30-F5F8-466E-AFF9-25556B57FE6D"];
+    NSUUID *uuid = [[NSUUID alloc] initWithUUIDString: @"B9407F30-F5F8-466E-AFF9-25556B57FE6D"];
     
     CLBeaconRegion *region = [[CLBeaconRegion alloc] initWithProximityUUID: uuid identifier: @"com.adelaarreola.ibeacon_senior_project"];
     region.notifyEntryStateOnDisplay = YES;
     region.notifyOnEntry = YES;
     region.notifyOnExit = YES;
+    
     
     [self.locationManager startRangingBeaconsInRegion: region];
     [self.locationManager startMonitoringForRegion: region];
@@ -121,6 +130,11 @@
 }
 
 #pragma mark - CLLocationManagerDelegate
+
+- (void)locationManager:(CLLocationManager *)manager didStartMonitoringForRegion:(CLRegion *)region
+{
+    
+}
 
 - (void)locationManager:(CLLocationManager *)manager didDetermineState:(CLRegionState)state forRegion:(CLRegion *)region
 {
@@ -175,7 +189,8 @@
 
 - (void)locationManager:(CLLocationManager *)manager monitoringDidFailForRegion:(CLRegion *)region withError:(NSError *)error
 {
-	NSLog(@"Monitoring Failed: %@", error);
+    NSLog(@"For Region: %@", region);
+	NSLog(@"Error: %@", error.localizedDescription);
 }
 
 #pragma mark - Helper's
@@ -225,7 +240,7 @@
 - (void)addInEntry
 {
     Event *newEvent = [[Event alloc] init];
-    newEvent.type = @"In";
+    newEvent.type = @"in";
     newEvent.date = [NSDate date];
     
     [self.events addObject: newEvent];
@@ -238,7 +253,7 @@
 - (void)addOutEntry
 {
     Event *newEvent = [[Event alloc] init];
-    newEvent.type = @"Out";
+    newEvent.type = @"out";
     newEvent.date = [NSDate date];
     
     [self.events addObject: newEvent];
@@ -256,27 +271,64 @@
     operationManager.requestSerializer = [AFJSONRequestSerializer serializer];
     operationManager.responseSerializer = [AFJSONResponseSerializer serializer];
     
-    NSDateFormatter *timeFormatter = [[NSDateFormatter alloc]init];
-    timeFormatter.dateFormat = @"HH:mm:ss";
-    NSString *time = [timeFormatter stringFromDate: event.date];
-    
-    id params = @{
-                  @"name" : self.userName,
-                  @"email" : self.email,
-                  @"time" : time,
-                  @"inOut" : event.type
-                  };
-    
-    [operationManager POST: @"http://192.241.185.153:8000/events"
-                parameters: params
+    [operationManager POST: @"http://attendancetracker.herokuapp.com/entry_event"
+                parameters: [self paramsForEvent: event]
                    success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                       NSLog(@"Success: %@", responseObject[@"data"]);
+                       
+                       NSLog(@"Success: Attendance ID: %@", responseObject[@"attendance_id"]);
+                       self.attendance_id = responseObject[@"attendance_id"];
                        
                    }
                    failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                        NSLog(@"Error: %@", error.localizedDescription);
                        
                    }];
+}
+
+- (NSDictionary *)paramsForEvent:(Event *)event
+{
+    NSDateFormatter *timeFormatter = [[NSDateFormatter alloc]init];
+    timeFormatter.dateFormat = @"HH:mm:ss";
+    NSString *time = [timeFormatter stringFromDate: event.date];
+    
+    if ([event.type isEqualToString: @"in"]) {
+    
+        return @{
+                 @"user_id" : self.user_id,
+                 @"beacon_id" : self.beacon_id,
+                 @"time_in" : time
+                 };
+        
+    }else{
+        
+        return @{
+                 @"user_id" : self.user_id,
+                 @"beacon_id" : self.beacon_id,
+                 @"time_out" : time,
+                 @"attendance_id" : self.attendance_id
+                 };
+        
+    }
+}
+
+- (IBAction)testIn:(id)sender
+{
+    Event *newEvent = [[Event alloc] init];
+    newEvent.type = @"in";
+    newEvent.date = [NSDate date];
+    
+    [self.events addObject: newEvent];
+    [self postEvent: newEvent];
+}
+
+- (IBAction)testOut:(id)sender
+{
+    Event *newEvent = [[Event alloc] init];
+    newEvent.type = @"out";
+    newEvent.date = [NSDate date];
+    
+    [self.events addObject: newEvent];
+    [self postEvent: newEvent];
 }
 
 @end

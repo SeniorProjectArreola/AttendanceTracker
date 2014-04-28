@@ -10,8 +10,10 @@
 
 @interface MainViewController : UITableViewController
 
-@property (strong, nonatomic) NSString *userName;
-@property (strong, nonatomic) NSString *email;
+@property (strong, nonatomic) NSString *user_id;
+@property (strong, nonatomic) NSString *beacon_id;
+
+@property (strong, nonatomic) NSString *attendance_id;
 
 @property (strong, nonatomic) NSMutableArray *events;
 

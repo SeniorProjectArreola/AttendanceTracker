@@ -49,29 +49,26 @@
 
 - (IBAction)pressedLogin:(id)sender
 {
-    if (([self.userNameField.text isEqualToString: @"hunter@stedwards.edu"] || [self.userNameField.text isEqualToString: @"hunter"]) && [self.passwordField.text isEqualToString: @"password"]) {
-        
-        UINavigationController *navViewController = [self.storyboard instantiateViewControllerWithIdentifier: @"loggedInNavigationController"];
-        MainViewController *viewController = [[navViewController childViewControllers] objectAtIndex: 0];
-        viewController.userName = @"Hunter";
-        viewController.email = @"huter@stedwards.edu";
-        
-        [self presentViewController: navViewController animated: YES completion: nil];
-
-        
-    }else if(([self.userNameField.text isEqualToString: @"adela@stedwards.edu"] || [self.userNameField.text isEqualToString: @"adela"]) && [self.passwordField.text isEqualToString: @"password"]){
-        
-        UINavigationController *navViewController = [self.storyboard instantiateViewControllerWithIdentifier: @"loggedInNavigationController"];
-        MainViewController *viewController = [[navViewController childViewControllers] objectAtIndex: 0];
-        viewController.userName = @"Adela";
-        viewController.email = @"adelaarreola@gmail.com";
-        
-        [self presentViewController: navViewController animated: YES completion: nil];
-        
-    }else{
-        [ProgressHUD showError: @"Wrong login."];
-        
-    }
+//    if(([self.userNameField.text isEqualToString: @"adela@stedwards.edu"] || [self.userNameField.text isEqualToString: @"adela"]) && [self.passwordField.text isEqualToString: @"password"]){
+//        
+//        UINavigationController *navViewController = [self.storyboard instantiateViewControllerWithIdentifier: @"loggedInNavigationController"];
+//        MainViewController *viewController = [[navViewController childViewControllers] objectAtIndex: 0];
+//        viewController.userName = @"Adela";
+//        viewController.email = @"adelaarreola@gmail.com";
+//        
+//        [self presentViewController: navViewController animated: YES completion: nil];
+//        
+//    }else{
+//        [ProgressHUD showError: @"Wrong login."];
+//        
+//    }
+    
+    UINavigationController *navViewController = [self.storyboard instantiateViewControllerWithIdentifier: @"loggedInNavigationController"];
+    MainViewController *viewController = [[navViewController childViewControllers] objectAtIndex: 0];
+    viewController.user_id = @"3";
+    viewController.beacon_id = @"1234";
+    
+    [self presentViewController: navViewController animated: YES completion: nil];
 }
 
 #pragma mark - UITextField Delegate
